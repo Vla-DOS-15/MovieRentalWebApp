@@ -1,0 +1,55 @@
+﻿@model MovieRentalWebApp.Models.Movie
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-thumbnail img-fluid mb-3" src="@Model.Image" alt="@Model.Title" style="max-width: 400px;" />
+            <br/>
+            <a class="btn btn-success btn-lg" asp-action="GetBooking" asp-controller="Booking" asp-route-id="@Model.Id">Reserve</a>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <h1>@Model.Title</h1>
+            <p><strong>Actor:</strong> @Model.Actor</p>
+            <p><strong>Director:</strong> @Model.Director</p>
+            <p><strong>Genre:</strong> @Model.Genre</p>
+            <p><strong>Time:</strong> @Model.Time minutes</p>
+            <p>@Model.Description</p>
+
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class=" thumb-wrap">
+                <iframe class="embed-responsive-item " width="560" height="315" src="@Model.Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<br />
+<br />
+<style>
+    .thumb-wrap {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .thumb-wrap iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-width: 0;
+        outline-width: 0;
+    }
+</style>

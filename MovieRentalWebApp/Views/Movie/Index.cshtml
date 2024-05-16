@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MovieRentalWebApp.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<div class="container justify-content-center">
+
+    <div class="row mt-6 mb-2">
+        @{
+            foreach (var movie in ViewBag.Movies)
+            {
+                <div class="col-lg-4">
+                    <a href="/Movie/Details/@movie.Id" class="text-decoration-none">
+                        <img class="img-thumbnail img-fluid mt-3" src="@movie.Image" alt="@movie.Title" style="max-width: 200px;" />
+                        <h2 class="movie-title">@movie.Title</h2>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+    <br />
+    <br />
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/Movie/Register">
+                    <div class="mb-3">
+                        <label for="FullName" class="form-label">FullName</label>
+                        <input type="text" class="form-control" id="FullName" name="FullName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="Email" name="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="Password" name="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/Movie/Login">
+                    <div class="mb-3" hidden>
+                        <label for="FullName" class="form-label">FullName</label>
+                        <input type="text" class="form-control" id="FullName" value="name" name="FullName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="Email" name="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="Password" name="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<style>
+    .movie-title {
+        color: black;
+        transition: color 0.3s;
+    }
+    .movie-title:hover {
+        color: red;
+    }
+</style>

@@ -1,0 +1,19 @@
+﻿@model MovieRentalWebApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Reserve Movie";
+}
+
+<h2>Reserve Movie</h2>
+
+<form method="post" asp-action="PostBooking">
+    <div class="form-group">
+        <label asp-for="AdditionalNotes"></label>
+        <textarea asp-for="AdditionalNotes" class="form-control"></textarea>
+    </div>
+    <input type="hidden" asp-for="MovieId" />
+    <input type="hidden" asp-for="UserId" />
+    <button type="submit" class="btn btn-primary">Reserve</button>
+</form>
+
+<a asp-action="Index" asp-controller="Movie" class="btn btn-default">Back to Movies</a>

@@ -1,0 +1,34 @@
+﻿@model List<MovieRentalWebApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "Booking List";
+}
+
+<h2>Booking List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Booking Date</th>
+            <th>Additional Notes</th>
+            <th>UserId</th>
+            <th>MovieId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.BookingDate</td>
+                <td>@booking.AdditionalNotes</td>
+                <td>@booking.UserId</td>
+                <td>@booking.MovieId</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-controller="Movie" class="btn btn-default">Back to Movies</a>
